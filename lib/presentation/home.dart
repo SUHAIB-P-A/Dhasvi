@@ -1,3 +1,4 @@
+import 'package:dhasvi/beautify/containerdecration/container_decration.dart';
 import 'package:dhasvi/beautify/text_style/textstyle.dart';
 import 'package:dhasvi/core/state.dart';
 import 'package:flutter/material.dart';
@@ -8,14 +9,22 @@ class Home extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final double height = MediaQuery.sizeOf(context).height;
+    final double weidth = MediaQuery.sizeOf(context).width;
+
     return Scaffold(
       body: Center(
         child: Consumer(
-          builder: (context, ref, child) {
+          builder: (context, ref, _) {
             final count = ref.watch(counterprovider);
-            return Text(
-              '$count',
-              style: textStyle,
+            return Container(
+              height: height - 200,
+              width: weidth - 100,
+              decoration: boxDecoration,
+              child: Text(
+                '$count',
+                style: textStyle,
+              ),
             );
           },
         ),
