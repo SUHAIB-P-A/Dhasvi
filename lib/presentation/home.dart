@@ -1,9 +1,9 @@
 import 'package:dhasvi/beautify/containerdecration/container_decration.dart';
 import 'package:dhasvi/beautify/text_style/textstyle.dart';
 import 'package:dhasvi/core/state.dart';
+import 'package:dhasvi/widgets/circlesprogress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class Home extends ConsumerWidget {
   const Home({super.key});
@@ -17,14 +17,17 @@ class Home extends ConsumerWidget {
       body: Center(
         child: Consumer(
           builder: (context, ref, _) {
-            final count = ref.watch(counterprovider);
+            final int count = ref.watch(counterprovider);
 
             return GestureDetector(
               onLongPress: () {
                 ref.read(counterprovider.notifier).state = 0;
               },
               onTap: () {
-                ref.read(counterprovider.notifier).state++;
+                if (count!=100) {
+                  ref.read(counterprovider.notifier).state++;
+                }
+                
               },
               child: Stack(
                 alignment: Alignment.center,
@@ -40,14 +43,7 @@ class Home extends ConsumerWidget {
                       ),
                     ),
                   ),
-                  CircularPercentIndicator(
-                    radius: 147,
-                    lineWidth: 10,
-                    animation: true,
-                    percent: 0.1,
-                    circularStrokeCap: CircularStrokeCap.round,
-                    progressColor: Colors.purple,
-                  ),
+                   CircleProgress(count: count,),
                 ],
               ),
             );
