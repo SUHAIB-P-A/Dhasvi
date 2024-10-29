@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dhasvi/beautify/containerdecration/container_decration.dart';
 import 'package:dhasvi/beautify/text_style/textstyle.dart';
 import 'package:dhasvi/core/state.dart';
@@ -21,6 +19,7 @@ class Home extends ConsumerWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // Circle
           Center(
             child: Consumer(
               builder: (context, ref, _) {
@@ -57,6 +56,7 @@ class Home extends ConsumerWidget {
               },
             ),
           ),
+          // BottemBar
           Container(
             height: height - 765,
             width: weidth - 40,

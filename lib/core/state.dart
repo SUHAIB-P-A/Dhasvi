@@ -5,6 +5,6 @@ final counterprovider = StateProvider<int>(
   (ref) => 0,
 );
 
-final circleprovider = StateProvider<List<Widget>>(
-  (ref) => [],
+final limitValueControllerProvider = Provider<TextEditingController>(
+  (ref) => TextEditingController(),
 );

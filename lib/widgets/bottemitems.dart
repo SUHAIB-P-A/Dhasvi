@@ -7,6 +7,18 @@ class BottomItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row();
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        GestureDetector(
+          onTap: () {
+            
+          },
+          child: Image.asset(
+            "assets/images/speed.png",
+          ),
+        ),
+      ],
+    );
   }
 }
